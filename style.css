@@ -1,0 +1,38 @@
+body{
+    font-family: cursive;
+    margin: auto;
+}
+
+.field {
+    position: relative;
+    left: 600px;
+    display: grid;
+   grid-template-columns: repeat(8, 40px); 
+   
+}
+
+button {
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.table{
+    font-size: 40px;
+    color: white;
+    margin-left: 650px;
+    
+}
+
+.newGame {
+    font-size: 25px;
+    width: 200px;
+    height: 40px;
+    background:#FFEB3B;
+    border-radius: 5px;
+    margin:20px 0 0 660px;
+}
