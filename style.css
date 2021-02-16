@@ -4,10 +4,11 @@ body{
 }
 
 .field {
+    margin-top:20px;
     position: relative;
-    left: 600px;
+    left: 610px;
     display: grid;
-   grid-template-columns: repeat(8, 40px); 
+    grid-template-columns: repeat(8, 40px); 
    
 }
 
@@ -24,7 +25,7 @@ h1 {
 .table{
     font-size: 40px;
     color: white;
-    margin-left: 650px;
+    margin-left: 660px;
     
 }
 
@@ -34,5 +35,28 @@ h1 {
     height: 40px;
     background:#FFEB3B;
     border-radius: 5px;
-    margin:20px 0 0 660px;
+    margin:20px 0 0 670px;
+}
+
+.block-input {
+    display: block;
+    width: 690px;
+    background:#FFEB3B;
+    border-radius: 5px;
+    margin:auto;
+    padding:0 0 20px 20px;
+}
+
+.block-input h2 {
+    text-align: center;
+}
+
+.setBtn {
+    font-size: 20px;
+    width: 100px;
+    height: 30px;
+    background:#d1cfbf;
+    border-radius: 5px;
+    margin: 10px;
+    
 }

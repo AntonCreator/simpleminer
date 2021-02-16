@@ -1,21 +1,22 @@
-startGame(8,8,10)
+
 
 function startGame(width, height, bombs) {
-    const field  = document.querySelector(".field");
+    let field  = document.querySelector(".field");
     const cells_count = width * height;
     const table = document.querySelector(".table")
     const newGame = document.querySelector(".newGame")
 
     field.innerHTML = "<button ></button>".repeat(cells_count)
+    field.style.gridTemplateColumns = `repeat(${width} , 40px)`
+    field.style.left = (610 - (width-8)*20) + "px"
 
     const cells = [...field.children];
     const bombsArr = [...Array(cells_count).keys()]
     .sort(() => Math.random() - 0.5)
     .slice(0, bombs);
-    console.log(bombsArr)
     
     newGame.addEventListener("click", () => location = location)
-
+     
     field.addEventListener("click", (event) => {
         if (event.target.tagName !== "BUTTON") {
             return;
@@ -65,7 +66,26 @@ function startGame(width, height, bombs) {
 
         event.target.disabled = true;
         
-    })
-
+    }) 
     
   }
+
+    
+    let set = document.querySelector(".setBtn")
+    set.addEventListener("click", refresh)
+
+    function refresh () {
+
+    let field  = document.querySelector(".field");
+    let width = +document.querySelector(".columnInp").value
+    let height = +document.querySelector(".rowInp").value
+    let bombs = +document.querySelector(".bombInp").value
+    
+
+    startGame(width, height, bombs)
+    
+    }
+    
+    
+    
+    
