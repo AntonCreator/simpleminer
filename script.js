@@ -18,59 +18,43 @@ function startGame(width, height, bombs) {
     newGame.addEventListener("click", () => location = location)
      
     field.addEventListener("click", (event) => {
+
         if (event.target.tagName !== "BUTTON") {
             return;
             }
-
         const index = cells.indexOf(event.target);
+        const column = index % width;
+        const row = Math.floor(index/width)
         
-        checkNum = (index) => {
-            let numArr = [];
-            if (bombsArr.indexOf(index-1) > 0){
-                numArr.push(1)
-            }
-            if (bombsArr.indexOf(index-7) > 0){
-                numArr.push(1)
-            }
-            if (bombsArr.indexOf(index-8) > 0){
-                numArr.push(1)
-            }
-            if (bombsArr.indexOf(index-9) > 0){
-                numArr.push(1)
-            }
-            if (bombsArr.indexOf(index+1) > 0){
-                numArr.push(1)
-            }
-            if (bombsArr.indexOf(index+7) > 0){
-                numArr.push(1)
-            }
-            if (bombsArr.indexOf(index+8) > 0){
-                numArr.push(1)
-            }
-            if (bombsArr.indexOf(index+9) > 0){
-                numArr.push(1)
-            }
-        
-            return numArr.length
+        function checkValid(row,column){
+            return row >= 0 && row < height && column >= 0 && column < width;        
         }
-
-        if (bombsArr.indexOf(index) >= 0){
+        const isBomb = (row,column) => {
+            if (!checkValid(row,column)) return false;
+            const index = row*width + column;
+            return bombsArr.includes(index);
+        }
+        const checkNum = (row,column) => {
+            let count = 0
+            for (let x = -1; x <= 1; x++){
+              for (let y = -1;y <= 1; y++){
+                if(isBomb(row + y, column + x)){
+                    count++
+                } 
+              }  
+            } return count
+        }
+        if (isBomb(row,column)){
             event.target.innerHTML = "💣";
             event.target.style.background = "red" 
             table.style.color = "red"
-            
-        
+
         }  else  {
-            event.target.innerHTML = checkNum(index)
+            event.target.innerHTML = checkNum(row,column)
         }
-
-        event.target.disabled = true;
-        
-    }) 
-    
+        event.target.disabled = true;      
+    })
   }
-
-    
     let set = document.querySelector(".setBtn")
     set.addEventListener("click", refresh)
 
@@ -84,7 +68,7 @@ function startGame(width, height, bombs) {
 
     startGame(width, height, bombs)
     
-    }
+   }
     
     
     
