@@ -1,5 +1,3 @@
-
-
 function startGame(width, height, bombs) {
     let field  = document.querySelector(".field");
     const cells_count = width * height;
