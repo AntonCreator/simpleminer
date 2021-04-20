@@ -1,13 +1,18 @@
 body{
     font-family: cursive;
     margin: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .field {
+    margin-top:20px;
     position: relative;
-    left: 600px;
     display: grid;
-   grid-template-columns: repeat(8, 40px); 
+    grid-template-columns: repeat(8, 40px); 
    
 }
 
@@ -24,8 +29,6 @@ h1 {
 .table{
     font-size: 40px;
     color: white;
-    margin-left: 650px;
-    
 }
 
 .newGame {
@@ -34,5 +37,48 @@ h1 {
     height: 40px;
     background:#FFEB3B;
     border-radius: 5px;
-    margin:20px 0 0 660px;
+    margin:20px 0 0 0px;
 }
+
+
+.input-Group {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+}
+
+
+.block-input {
+    display: flex;
+    flex-direction: column;
+    background:#FFEB3B;
+    border-radius: 5px;
+    padding: 10px;
+    
+}
+
+.block-input h2 {
+    text-align: center;
+}
+
+.setBtn {
+    font-size: 20px;
+    width: 100px;
+    height: 30px;
+    background:#d1cfbf;
+    border-radius: 5px;
+   }
+
+.group-Item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:-10px;
+    font-size: 25px;  
+}
+
+.group-Item input{
+     margin-top: -15px;
+     margin-bottom: -10px;
+} 
